@@ -8,7 +8,6 @@ services:
       - ROS_HOSTNAME=localhost
       - ROS_MASTER_URI=http://localhost:11311
     restart: always
-
   rosdev:
     image: uos-robotics:latest
     container_name: rosdev
@@ -18,5 +17,5 @@ services:
       - ROS_MASTER_URI=http://localhost:11311
     volumes:
       - ./labs:/workspace
-    command: ./ros_entrypoint.sh bash -c "tail -f /dev/null"
+    command: [ "/bin/bash", "-c", "echo 'source /opt/ros/melodic/setup.bash' >> ~/.bashrc && source ~/.bashrc && tail -f /dev/null" ]
     restart: always
