@@ -1,0 +1,22 @@
+services:
+  roscore:
+    image: uos-robotics:latest
+    container_name: roscore
+    command: roscore
+    network_mode: host
+    environment:
+      - ROS_HOSTNAME=localhost
+      - ROS_MASTER_URI=http://localhost:11311
+    restart: always
+
+  rosdev:
+    image: uos-robotics:latest
+    container_name: rosdev
+    network_mode: host
+    environment:
+      - ROS_HOSTNAME=localhost
+      - ROS_MASTER_URI=http://localhost:11311
+    volumes:
+      - ./labs:/workspace
+    command: ./ros_entrypoint.sh bash -c "tail -f /dev/null"
+    restart: always
