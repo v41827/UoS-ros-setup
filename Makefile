@@ -5,7 +5,7 @@ setup:
 
 .PHONY: up
 up: 
-	docker-compose up -d
+	docker compose up -d
 
 .PHONY: exec
 exec:
@@ -13,4 +13,4 @@ exec:
 
 .PHONY: down
 down:
-	docker-compose down
+	docker compose down
