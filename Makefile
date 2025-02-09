@@ -14,3 +14,7 @@ exec:
 .PHONY: down
 down:
 	docker compose down
+	
+.PHONY: clean
+clean:
+	docker system prune

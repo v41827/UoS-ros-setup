@@ -15,6 +15,7 @@ services:
     environment:
       - ROS_HOSTNAME=localhost
       - ROS_MASTER_URI=http://localhost:11311
+      - DISPLAY=host.docker.internals
     volumes:
       - ./labs:/workspace
     command: [ "/bin/bash", "-c", "echo 'source /opt/ros/melodic/setup.bash' >> ~/.bashrc && source ~/.bashrc && tail -f /dev/null" ]

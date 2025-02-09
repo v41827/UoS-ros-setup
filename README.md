@@ -10,3 +10,10 @@ If you want the vanilla University of Surrey's docker image, run
 make setup
 ```
 This pulls the image from the University of Surrey's container registry and retag it as `uos-ros-setup:latest`.If you want an opinionated, personalized setup, feel free to use the Dockerfile in this repository.
+
+
+## Testing the GUI
+To test the GUI, run the following command:
+```bash
+rosrun turtlesim turtlesim_node
+```
