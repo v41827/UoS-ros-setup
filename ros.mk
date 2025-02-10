@@ -34,3 +34,7 @@ list_service:
 .PHONY: list_params
 list_params:
 	@rosparam list
+
+.PHONY: rviz
+rviz:
+	@rosrun rviz rviz
