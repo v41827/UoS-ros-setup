@@ -18,8 +18,7 @@ services:
       - DISPLAY=host.docker.internal:0
       - XDG_RUNTIME_DIR=/tmp
     volumes:
-      - ./labs:/workspace/labs
       - ./ros.mk:/Makefile
-      - ./catkin_ws:/workspace/catkin_ws
+      - ./catkin_ws:/root/catkin_ws
     command: [ "/bin/bash", "-c", "echo 'source /opt/ros/melodic/setup.bash' >> ~/.bashrc && source ~/.bashrc && tail -f /dev/null" ]
     restart: always
