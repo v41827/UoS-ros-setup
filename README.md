@@ -1,5 +1,6 @@
 # UoS-ros-setup 🤖
 ROS setup for University of Surrey's CVRML programme.
+![ros_setup](./assets/turtlesim.png)
 
 ## Docker Setup
 
