@@ -19,5 +19,6 @@ services:
       - XDG_RUNTIME_DIR=/tmp
     volumes:
       - ./labs:/workspace
+      - ./ros.mk:/Makefile
     command: [ "/bin/bash", "-c", "echo 'source /opt/ros/melodic/setup.bash' >> ~/.bashrc && source ~/.bashrc && tail -f /dev/null" ]
     restart: always

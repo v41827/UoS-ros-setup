@@ -8,6 +8,9 @@ mac-setup:
 	docker build --no-cache -t ros-melodic-arm64 .
 	docker tag ros-melodic-arm64 uos-robotics:latest
 
+.PHONY: run
+run: up exec
+
 .PHONY: up
 up: 
 	docker compose up -d
