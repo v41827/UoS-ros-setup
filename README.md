@@ -25,12 +25,32 @@ The `Dockerfile` in this repository uses `arm64v8/ros:melodic-ros-base-bionic` a
 make mac-setup
 ```
 
-## X11 Forwarding
-There's a pretty straightforward guide [here](https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088).
-Before you run, make sure you have XQuartz active and running. I explicitly set the `~/.zshrc` to export the `DISPLAY` variable to `:0`.
+#### X11 Forwarding
+First, make sure you have `XQuartz` installed on your machine. You can follow the guide [here](https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088).
+```bash
+brew install xquartz
+```
+Make sure you restart the machine after the installation.
+Then, you need to make sure `Allow connections from network clients` is checked in the `Security` tab of the `XQuartz` preferences.
+![X11 Preferences](assets/x11_preferences.png)
+Running `xeyes` should open up a window with eyes following your cursor.
+
+![xeyes](assets/xeyes.png)
+
+If you need to debug your xquartz installation,
+```bash
+launchctl getenv DISPLAY
+echo $DISPLAY
+```
+Both of these commands should yield you something like this `/private/tmp/com.apple.launchd.MlblcvUafR/org.xquartz:0`.
+
+
+You can also choose to explicitly set the `~/.zshrc` to export the `DISPLAY` variable to `:0`. 
 ```bash
 export DISPLAY=":0"
 ```
+This might solve the issue, but it also indicates there are some problems prohibing the X11 server from starting up. Usually it's due to accidentally disabling `XQuartz` in your `Login Items and Extensions` in your `System Preferences`.
+![enable XQuartz at login](assets/xquartz_login.png)
 
-## Getting RViz to Work
-https://gist.github.com/vfdev-5/b7685371071036cb739f23b3794b5b83
+### Getting RViz to Work 🚧
+This is a work in progress. Following this [link](https://gist.github.com/vfdev-5/b7685371071036cb739f23b3794b5b83) at the moment.
