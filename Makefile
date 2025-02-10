@@ -13,6 +13,7 @@ run: up exec
 
 .PHONY: up
 up: 
+	@xhost +
 	docker compose up -d
 
 .PHONY: exec
