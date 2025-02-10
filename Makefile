@@ -13,7 +13,7 @@ run: up exec
 
 .PHONY: up
 up: 
-	@xhost +
+	@open -a Xquartz && sleep 5 && xhost +localhost
 	docker compose up -d
 
 .PHONY: exec
@@ -22,6 +22,7 @@ exec:
 
 .PHONY: down
 down:
+	@killall Xquartz
 	docker compose down
 	
 .PHONY: clean

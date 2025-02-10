@@ -1,7 +1,6 @@
 # UoS-ros-setup 🤖
 ROS setup for University of Surrey's CVRML programme.
 
-
 ## Docker Setup
 
 ### Windows 🪟
@@ -27,3 +26,7 @@ make mac-setup
 
 ## X11 Forwarding
 There's a pretty straightforward guide [here](https://gist.github.com/sorny/969fe55d85c9b0035b0109a31cbcb088).
+Before you run, make sure you have XQuartz active and running. I explicitly set the `~/.zshrc` to export the `DISPLAY` variable to `:0`.
+```bash
+export DISPLAY=":0"
+```
