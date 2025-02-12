@@ -1,6 +1,7 @@
 # UoS-ros-setup 🤖
 ROS setup for University of Surrey's CVRML programme. This respository is mostly catered towards **Macs with Apple Sillicon**.
 ![ros_setup](./assets/turtlesim.png)
+![ros setup](./assets/novnc.png)
 
 ## Docker Setup
 
