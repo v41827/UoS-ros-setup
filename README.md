@@ -1,30 +1,30 @@
 # UoS-ros-setup 🤖
-ROS setup for University of Surrey's CVRML programme.
+ROS setup for University of Surrey's CVRML programme. This respository is mostly catered towards **Macs with Apple Sillicon**.
 ![ros_setup](./assets/turtlesim.png)
 
 ## Docker Setup
 
 ### Windows 🪟
-Make sure you have the GlobalProtect VPN client installed and connected to the University of Surrey's network. See [here](uos_vpn_setup.pdf) for more information.
+This repository is not tested on Windows (yet). However, you can follow the steps below to setup the ROS environment on your Windows machine. 
+1. Make sure you have the GlobalProtect VPN client installed and connected to the University of Surrey's network. See [here](uos_vpn_setup.pdf) for more information.
 
-If you want the vanilla University of Surrey's docker image, run 
-```bash
-docker pull container-registry.surrey.ac.uk/shared-containers/robotics-module-2:latest
-docker tag container-registry.surrey.ac.uk/shared-containers/robotics-module-2:latest uos-robotics:latest
-```
+2. Run the following command to pull the image from the University of Surrey's container registry and tag it as `uos-ros-setup:latest`.
+    ```bash
+    docker pull container-registry.surrey.ac.uk/shared-containers/robotics-module-2:latest
+    docker tag container-registry.surrey.ac.uk/shared-containers/robotics-module-2:latest uos-robotics:latest
+    ```
+    Alternatively, if you don't want to setup the VPN, you can pull from OSRF's official image:
+    ```bash
+    docker pull osrf/ros:melodic-desktop-full
+    ```
 
-This pulls the image from the University of Surrey's container registry and retag it as `uos-ros-setup:latest`. Alternatively, if you don't want to setup the VPN, you can pull from OSRF's official image:
-```bash
-docker pull osrf/ros:melodic-desktop-full
-```
-
-**Be mindful that both of these images are amd64 images.** 
-If you're using M1 Macs, Docker uses QEMU to emulate the amd64 architecture on your machine. This can cause some unintended side effects so I highly advise the custom built image provided in this repository.
+    **Be mindful that both of these images are amd64 images.** 
+    If you're using M1 Macs, Docker uses QEMU to emulate the amd64 architecture on your machine. This can cause some unintended side effects so I highly advise the custom built image provided in this repository.
 
 ### Apple Sillicon 🍎
 The `Dockerfile` in this repository uses `arm64v8/ros:melodic-ros-base-bionic` as the base image. You can build and tag this image by running:
 ```bash
-make mac-setup
+make build
 ```
 
 #### X11 Forwarding
@@ -54,5 +54,3 @@ export DISPLAY=":0"
 This might solve the issue, but it also indicates there are some problems prohibing the X11 server from starting up. Usually it's due to accidentally disabling `XQuartz` in your `Login Items and Extensions` in your `System Preferences`.
 ![enable XQuartz at login](assets/xquartz_login.png)
 
-### Getting RViz to Work 🚧
-This is a work in progress. Following this [link](https://gist.github.com/vfdev-5/b7685371071036cb739f23b3794b5b83) at the moment.
