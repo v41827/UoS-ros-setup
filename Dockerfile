@@ -44,7 +44,7 @@ COPY xstartup /root/.vnc/xstartup
 RUN chmod +x /root/.vnc/xstartup
 
 # Add supervisor configuration
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY ros-vnc.conf /etc/supervisor/conf.d/ros-vnc.conf
 
 # Set up ROS environment
 RUN echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc
