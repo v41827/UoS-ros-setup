@@ -1,6 +1,11 @@
 FROM arm64v8/ros:melodic-ros-base-bionic
 
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive \
+    HOME=/root \
+    DISPLAY=:1 \
+    USER=root \
+    XDG_RUNTIME_DIR=/tmp/runtime-root \
+    QT_X11_NO_MITSHM=1
 
 # Install VNC, XFCE4, and required packages
 RUN apt-get update && apt-get install -y \
@@ -15,7 +20,6 @@ RUN apt-get update && apt-get install -y \
     net-tools \
     supervisor \
     dbus-x11 \
-    python-pip \
     websockify \
     # Add OpenGL and Qt dependencies
     libgl1-mesa-dri \
@@ -40,23 +44,10 @@ RUN chmod +x /root/.vnc/xstartup
 
 # Add supervisor configuration
 COPY ros-vnc.conf /etc/supervisor/conf.d/ros-vnc.conf
+RUN mkdir -p /var/log/supervisor
 
 # Set up ROS environment
 RUN echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc
-
-# Create required directories
-RUN mkdir -p /tmp/.X11-unix && \
-    chmod 1777 /tmp/.X11-unix
-
-# Create log directory for supervisor
-RUN mkdir -p /var/log/supervisor
-
-# Set environment variables
-ENV HOME=/root \
-    DISPLAY=:1 \
-    USER=root \
-    XDG_RUNTIME_DIR=/tmp/runtime-root \
-    QT_X11_NO_MITSHM=1
 
 EXPOSE 5901
 EXPOSE 6080

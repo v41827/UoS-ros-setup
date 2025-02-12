@@ -9,8 +9,10 @@ Make sure you have the GlobalProtect VPN client installed and connected to the U
 
 If you want the vanilla University of Surrey's docker image, run 
 ```bash
-make windows-setup
+docker pull container-registry.surrey.ac.uk/shared-containers/robotics-module-2:latest
+docker tag container-registry.surrey.ac.uk/shared-containers/robotics-module-2:latest uos-robotics:latest
 ```
+
 This pulls the image from the University of Surrey's container registry and retag it as `uos-ros-setup:latest`. Alternatively, if you don't want to setup the VPN, you can pull from OSRF's official image:
 ```bash
 docker pull osrf/ros:melodic-desktop-full
