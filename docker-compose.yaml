@@ -4,7 +4,7 @@ services:
     container_name: roscore
     command: roscore
     networks:
-      - ros_net
+      - rosnet
     environment:
       - ROS_HOSTNAME=roscore
       - ROS_MASTER_URI=http://roscore:11311
@@ -17,7 +17,7 @@ services:
       - "5901:5901"
       - "6080:6080"
     networks:
-      - ros_net
+      - rosnet
     environment:
       - ROS_HOSTNAME=rosdev
       - ROS_MASTER_URI=http://roscore:11311
@@ -27,5 +27,5 @@ services:
     restart: always
 
 networks:
-  ros_net:
+  rosnet:
     driver: bridge

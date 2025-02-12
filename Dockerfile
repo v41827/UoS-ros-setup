@@ -40,9 +40,8 @@ RUN mkdir -p /tmp/runtime-root && \
     chown root:root /tmp/runtime-root
 
 # Create xstartup file
-RUN mkdir -p /root/.vnc && \
-    echo '#!/bin/bash\nunset SESSION_MANAGER\nunset DBUS_SESSION_BUS_ADDRESS\nexport XKL_XMODMAP_DISABLE=1\n[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup\n[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources\n# Start dbus\ndbus-launch --exit-with-session\n# Start accessibility services\n/usr/lib/at-spi2-core/at-spi-bus-launcher --launch-immediately &\nvncconfig -iconic &\nstartxfce4 &' > /root/.vnc/xstartup && \
-    chmod +x /root/.vnc/xstartup
+COPY xstartup /root/.vnc/xstartup
+RUN chmod +x /root/.vnc/xstartup
 
 # Add supervisor configuration
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
