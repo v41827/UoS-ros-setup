@@ -34,11 +34,6 @@ RUN mkdir -p /root/.vnc && \
     echo "password" | vncpasswd -f > /root/.vnc/passwd && \
     chmod 600 /root/.vnc/passwd
 
-# Set up runtime directories
-RUN mkdir -p /tmp/runtime-root && \
-    chmod 700 /tmp/runtime-root && \
-    chown root:root /tmp/runtime-root
-
 # Create xstartup file
 COPY xstartup /root/.vnc/xstartup
 RUN chmod +x /root/.vnc/xstartup
