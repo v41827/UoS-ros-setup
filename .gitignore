@@ -84,5 +84,8 @@ qtcreator-*
 # vscode
 .vscode/
 
+# Mac Files
+.DS_Store
+
 # Catkin custom files
 CATKIN_IGNORE

@@ -38,3 +38,7 @@ list_params:
 .PHONY: rviz
 rviz:
 	@rosrun rviz rviz
+
+.PHONY: source
+source:
+	@. devel/setup.sh

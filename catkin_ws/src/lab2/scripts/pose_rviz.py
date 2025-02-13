@@ -23,7 +23,7 @@ if __name__ == '__main__':
         # Initialize the ROS node
         rospy.init_node('pose_rviz', anonymous=True)
         global pub
-        pub = rospy.Publisher('turtle1/pose_stamped', PoseStamped, queue_size=10)
+        pub = rospy.Publisher('turtle1/pose_rviz', PoseStamped, queue_size=10)
         rospy.Subscriber('/turtle1/pose', Pose, callback)
         rospy.spin()
         
