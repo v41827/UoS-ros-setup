@@ -22,7 +22,7 @@ services:
       - ROS_HOSTNAME=rosdev
       - ROS_MASTER_URI=http://roscore:11311
     volumes:
-      - ./ros.mk:/Makefile
+      - ./ros.mk:/root/Makefile
       - ./catkin_ws:/root/catkin_ws
     restart: always
 
