@@ -1,0 +1,15 @@
+{
+    "terminal.integrated.profiles.osx": {
+        "rosdev": {
+            "path": "docker",
+            "args": [
+                "exec",
+                "-it",
+                "rosdev",
+                "bash"
+            ]
+        }
+    },
+    // optional: set the default profile to rosdev
+    // "terminal.integrated.defaultProfile.osx": "rosdev"
+}

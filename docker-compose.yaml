@@ -3,19 +3,29 @@ services:
     image: uos-robotics:latest
     container_name: roscore
     command: roscore
-    network_mode: host
+    networks:
+      - rosnet
     environment:
-      - ROS_HOSTNAME=localhost
-      - ROS_MASTER_URI=http://localhost:11311
+      - ROS_HOSTNAME=roscore
+      - ROS_MASTER_URI=http://roscore:11311
     restart: always
+
   rosdev:
     image: uos-robotics:latest
     container_name: rosdev
-    network_mode: host
+    ports:
+      - "5901:5901"
+      - "6080:6080"
+    networks:
+      - rosnet
     environment:
-      - ROS_HOSTNAME=localhost
-      - ROS_MASTER_URI=http://localhost:11311
+      - ROS_HOSTNAME=rosdev
+      - ROS_MASTER_URI=http://roscore:11311
     volumes:
-      - ./labs:/workspace
-    command: [ "/bin/bash", "-c", "echo 'source /opt/ros/melodic/setup.bash' >> ~/.bashrc && source ~/.bashrc && tail -f /dev/null" ]
+      - ./ros.mk:/Makefile
+      - ./catkin_ws:/root/catkin_ws
     restart: always
+
+networks:
+  rosnet:
+    driver: bridge
