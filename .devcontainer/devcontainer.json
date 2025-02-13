@@ -4,6 +4,15 @@
     "service": "rosdev",
     "workspaceFolder": "/root/catkin_ws",
     "remoteUser": "root",
+    "customizations": {
+        "vscode":{
+            "extensions": [
+                "ms-iot.vscode-ros",
+                "ms-python.python",
+                "ms-vscode.cpptools"
+            ]
+        }
+    },
     "forwardPorts": [
         5901,
         6080
