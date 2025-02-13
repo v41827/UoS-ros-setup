@@ -2,7 +2,7 @@
     "name": "ROS Melodic Sandbox",
     "dockerComposeFile": "./docker-compose.yaml",
     "service": "rosdev",
-    "workspaceFolder": "/root/workspace/catkin_ws",
+    "workspaceFolder": "/root/catkin_ws",
     "remoteUser": "root",
     "customizations": {
         "vscode": {

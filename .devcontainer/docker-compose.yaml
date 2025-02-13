@@ -26,7 +26,7 @@ services:
       - ROS_HOSTNAME=rosdev
       - ROS_MASTER_URI=http://roscore:11311
     volumes:
-      - ../:/root/workspace
+      - ../catkin_ws:/root/catkin_ws
     restart: always
 
 networks:
