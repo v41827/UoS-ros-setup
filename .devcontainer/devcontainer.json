@@ -1,3 +1,11 @@
 {
-    "image": "uos-robotics:latest"
+    "name": "ROS Melodic Sandbox",
+    "dockerComposeFile": "../docker-compose.yaml",
+    "service": "rosdev",
+    "workspaceFolder": "/root/catkin_ws",
+    "remoteUser": "root",
+    "forwardPorts": [
+        5901,
+        6080
+    ]
 }
