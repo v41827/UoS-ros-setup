@@ -1,0 +1,21 @@
+{
+    "name": "ROS Melodic Sandbox",
+    "dockerComposeFile": "./docker-compose.yaml",
+    "service": "rosdev",
+    "workspaceFolder": "/root/catkin_ws",
+    "remoteUser": "root",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-iot.vscode-ros",
+                "ms-python.python",
+                "ms-vscode.cpptools"
+            ]
+        }
+    },
+    "forwardPorts": [
+        5901,
+        6080
+    ],
+    "postStartCommand": "echo '\n\n🚀 Container is ready! Connect to the UI by opening: http://localhost:6080/vnc.html in your browser\n\n'"
+}
