@@ -28,6 +28,7 @@ services:
     volumes:
       - ./ros.mk:/root/Makefile
       - ./catkin_ws:/root/catkin_ws
+      - ./labs:/root/labs
     restart: always
 
 networks:
