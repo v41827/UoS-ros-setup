@@ -1,6 +1,8 @@
 services:
   roscore:
-    image: uos-robotics:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: roscore
     command: roscore
     networks:
@@ -11,7 +13,9 @@ services:
     restart: always
 
   rosdev:
-    image: uos-robotics:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: rosdev
     ports:
       - "5901:5901"
