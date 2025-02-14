@@ -2,8 +2,8 @@
 turtle:
 	@rosrun turtlesim turtlesim_node
 
-.PHONY: turtle_teleop
-turtle_teleop:
+.PHONY: teleop
+teleops:
 	@rosrun turtlesim turtle_teleop_key
 
 .PHONY: clear
@@ -39,6 +39,6 @@ list_params:
 rviz:
 	@rosrun rviz rviz
 
-.PHONY: source
-source:
-	@. devel/setup.sh
+.PHONY: launch
+launch:
+	@roslaunch hw turtles.launch

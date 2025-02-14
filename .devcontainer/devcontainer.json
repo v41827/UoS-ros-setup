@@ -9,7 +9,10 @@
             "extensions": [
                 "ms-iot.vscode-ros",
                 "ms-python.python",
-                "ms-vscode.cpptools"
+                "ms-vscode.cpptools",
+                "redhat.vscode-xml",
+                "ms-vscode.cmake-tools",
+                "ms-python.black-formatter"
             ]
         }
     },
