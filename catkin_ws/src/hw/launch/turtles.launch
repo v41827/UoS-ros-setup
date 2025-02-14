@@ -1,0 +1,16 @@
+<launch>
+    <arg name="launch_lab" default="false"/>
+    <arg name="launch_valentines" default="true"/>
+
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim"/>
+
+    <group if="$(arg launch_lab)">
+        <node pkg="rosservice" type="rosservice" name="spawn" args="call spawn 5.5 5.5 0 'turtle2'"/>
+        <node pkg="hw" type="invert_turtle.py" name="invert_turtle"/>
+        <node pkg="hw" type="teleport_turtle.py" name="teleport_turtle"/>
+    </group>
+
+    <group if="$(arg launch_valentines)">
+        <node pkg="hw" type="heart_turtle.py" name="heart_turtle"/>
+    </group>
+</launch>
