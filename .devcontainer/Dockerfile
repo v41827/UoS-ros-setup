@@ -5,7 +5,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     DISPLAY=:1 \
     USER=root \
     XDG_RUNTIME_DIR=/tmp/runtime-root \
-    QT_X11_NO_MITSHM=1
+    QT_X11_NO_MITSHM=1 \
+    TURTLEBOT3_MODEL=burger
 
 # Install VNC, XFCE4, and required packages
 RUN apt-get update && apt-get install -y \
