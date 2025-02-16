@@ -14,6 +14,7 @@ def callback(data):
     msg.pose.orientation = Quaternion(*q)
     msg.pose.position.x = data.x
     msg.pose.position.y = data.y
+    msg.pose.position.z = 1
     
     # Publish the transformed pose
     pub.publish(msg)

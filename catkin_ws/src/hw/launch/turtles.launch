@@ -1,6 +1,6 @@
 <launch>
     <arg name="launch_lab" default="false"/>
-    <arg name="launch_valentines" default="true"/>
+    <arg name="launch_valentines" default="false"/>
 
     <node pkg="turtlesim" type="turtlesim_node" name="turtlesim"/>
 
