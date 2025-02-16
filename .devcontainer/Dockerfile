@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y \
     ros-melodic-rqt \
     ros-melodic-tf \
     ros-melodic-rviz \
+    ros-melodic-turtlebot3 \
+    ros-melodic-turtlebot3-msgs \
     xfce4 \
     xfce4-goodies \
     tigervnc-standalone-server\
