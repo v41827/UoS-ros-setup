@@ -1,6 +1,21 @@
-<param name="use_sim_time" value="true" />
+<launch>
+    <param name="use_sim_time" value="true" />
 
-<include file="$(find turtlebot3_bringup)/launch/includes/description.launch.xml">
-    <arg name="model" value="burger" />
-</include>
-<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+    <include file="$(find turtlebot3_bringup)/launch/includes/description.launch.xml">
+        <arg name="model" value="burger" />
+    </include>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+
+    <node pkg="rviz" type="rviz" name="rviz"/>
+
+    <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform_node">
+        <param name="frequency" value="10.0"/>
+        <param name="yaw_offset" value="0.0"/>
+        <param name="zero_altitude" value="true"/>
+        <param name="broadcast_cartesian_transform" value="true"/>
+        <param name="publish_filtered_gps" value="true"/>
+        <remap from="/odometry/filtered" to="/odom"/>
+        <remap from="/imu/data" to="/imu"/>
+        <remap from="/gps/fix" to="/gps/fix"/>
+    </node>
+</launch>

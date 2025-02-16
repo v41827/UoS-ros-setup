@@ -12,10 +12,12 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN apt-get update && apt-get install -y \
     ros-melodic-turtlesim \
     ros-melodic-rqt \
+    ros-melodic-rqt-common-plugins \
     ros-melodic-tf \
     ros-melodic-rviz \
     ros-melodic-turtlebot3 \
     ros-melodic-turtlebot3-msgs \
+    ros-melodic-robot-localization \
     xfce4 \
     xfce4-goodies \
     tigervnc-standalone-server\
