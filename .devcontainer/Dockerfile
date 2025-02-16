@@ -48,6 +48,7 @@ RUN mkdir -p /var/log/supervisor
 
 # Set up ROS environment
 RUN echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc
+RUN echo "source /root/catkin_ws/devel/setup.bash" >> /root/.bashrc
 
 EXPOSE 5901
 EXPOSE 6080
