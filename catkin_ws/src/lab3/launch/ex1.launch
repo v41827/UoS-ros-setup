@@ -1,0 +1,6 @@
+<param name="use_sim_time" value="true" />
+
+<include file="$(find turtlebot3_bringup)/launch/includes/description.launch.xml">
+    <arg name="model" value="burger" />
+</include>
+<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
