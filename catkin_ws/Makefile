@@ -3,7 +3,7 @@ turtle:
 	@rosrun turtlesim turtlesim_node
 
 .PHONY: teleop
-teleops:
+teleop:
 	@rosrun turtlesim turtle_teleop_key
 
 .PHONY: clear
