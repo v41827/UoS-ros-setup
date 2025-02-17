@@ -18,6 +18,7 @@
         </rosparam>
     </node>
 
+    <!-- https://docs.ros.org/en/jade/api/robot_localization/html/navsat_transform_node.html -->
     <node pkg="robot_localization" name="gps_transformer" type="navsat_transform_node">
         <remap from="/odometry/filtered" to="/odom_corrected"/>
         <remap from="/imu/data" to="/imu_corrected"/>
