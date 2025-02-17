@@ -11,9 +11,15 @@
 
     <node pkg="rosbag" type="play" name="player" args="--clock /root/catkin_ws/labs/lab3/lab3_data.bag"/>
 
+    <node pkg="robot_localization" name="KF" type="ekf_localization_node">
+        <param name="odom1" value="/odometry/gps"/>
+        <rosparam param="odom1_config">[true, true, false, false, false, false,
+        false, false, false, false, false, false, false, false, false]
+        </rosparam>
+    </node>
+
     <node pkg="robot_localization" name="gps_transformer" type="navsat_transform_node">
         <remap from="/odometry/filtered" to="/odom_corrected"/>
         <remap from="/imu/data" to="/imu_corrected"/>
-        <remap from="/gps/fix" to="/gps/fix"/>
     </node>
 </launch>
