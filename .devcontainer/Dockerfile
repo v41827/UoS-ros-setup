@@ -19,7 +19,6 @@ RUN apt-get update && apt-get install -y \
     novnc \
     net-tools \
     supervisor \
-    dbus-x11 \
     websockify \
     # Add OpenGL and Qt dependencies
     libgl1-mesa-dri \
