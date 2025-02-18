@@ -18,6 +18,10 @@ services:
     network_mode: "host"
     environment:
       - ROS_MASTER_URI=http://localhost:11311
+      - DISPLAY=:1
+      - XDG_RUNTIME_DIR=/tmp/runtime-root
+      - TURTLEBOT3_MODEL=burger
+      - QT_X11_NO_MITSHM=1
     volumes:
       - ../catkin_ws:/root/catkin_ws
     restart: always

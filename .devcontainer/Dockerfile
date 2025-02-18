@@ -2,11 +2,7 @@ FROM arm64v8/ros:melodic-ros-base-bionic
 
 ENV DEBIAN_FRONTEND=noninteractive \
     HOME=/root \
-    DISPLAY=:1 \
-    USER=root \
-    XDG_RUNTIME_DIR=/tmp/runtime-root \
-    QT_X11_NO_MITSHM=1 \
-    TURTLEBOT3_MODEL=burger
+    USER=root
 
 # Install VNC, XFCE4, and required packages
 RUN apt-get update && apt-get install -y \
