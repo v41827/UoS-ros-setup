@@ -1,0 +1,37 @@
+services:
+  roscore:
+    image: uos-robotics:latest
+    container_name: roscore
+    command: roscore
+    network_mode: "host" # Changed to host networking
+    environment:
+      - ROS_HOSTNAME=localhost
+      - ROS_MASTER_URI=http://localhost:11311
+    restart: always
+
+  rosdev:
+    container_name: rosdev
+    image: uos-robotics:latest
+    network_mode: "host"
+    privileged: true
+    environment:
+      - ROS_HOSTNAME=localhost
+      - ROS_MASTER_URI=http://localhost:11311
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - GAZEBO_IP=127.0.0.1
+      - LIBGL_ALWAYS_INDIRECT=0
+      - HOME=${HOME}
+      - HOSTNAME=${HOSTNAME}
+    volumes:
+      - ${HOME}:${HOME}
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${HOME}/.Xauthority:/root/.Xauthority:ro
+    devices:
+      - /dev/nvidia0:/dev/nvidia0
+    restart: always
+    command: |
+      bash -c '
+      echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc &&
+      tail -f /dev/null
+      '
