@@ -27,8 +27,8 @@ services:
       - ${HOME}:${HOME}
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${HOME}/.Xauthority:/root/.Xauthority:ro
-    devices:
-      - /dev/nvidia0:/dev/nvidia0
+    # devices:
+    #   - /dev/nvidia0:/dev/nvidia0
     restart: always
     command: |
       bash -c '
