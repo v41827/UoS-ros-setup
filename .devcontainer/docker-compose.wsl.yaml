@@ -3,7 +3,7 @@ services:
     image: uos-robotics:latest
     container_name: roscore
     command: roscore
-    network_mode: "host" # Changed to host networking
+    network_mode: "host"
     environment:
       - ROS_HOSTNAME=localhost
       - ROS_MASTER_URI=http://localhost:11311
@@ -22,7 +22,7 @@ services:
       - GAZEBO_IP=127.0.0.1
       - LIBGL_ALWAYS_INDIRECT=0
     volumes:
-      - ${HOME}:${HOME}
+      - ../catkin_ws:/root/catkin_ws
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${HOME}/.Xauthority:/root/.Xauthority:ro
     # Uncomment the following lines if you have an NVIDIA GPU and want to use it in the container
