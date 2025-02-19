@@ -1,0 +1,33 @@
+services:
+  roscore:
+    image: uos-robotics:latest
+    container_name: roscore
+    command: roscore
+    network_mode: "host"
+    environment:
+      - ROS_HOSTNAME=localhost
+      - ROS_MASTER_URI=http://localhost:11311
+    restart: always
+
+  rosdev:
+    container_name: rosdev
+    image: uos-robotics:latest
+    network_mode: "host"
+    privileged: true
+    environment:
+      - ROS_HOSTNAME=localhost
+      - ROS_MASTER_URI=http://localhost:11311
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - GAZEBO_IP=127.0.0.1
+      - LIBGL_ALWAYS_INDIRECT=0
+    volumes:
+      - ../catkin_ws:/root/catkin_ws
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${HOME}/.Xauthority:/root/.Xauthority:ro
+    # Uncomment the following lines if you have an NVIDIA GPU and want to use it in the container
+    # devices:
+    #   - /dev/nvidia0:/dev/nvidia0
+    restart: always
+    command: [ "/bin/bash", "-c", "echo 'source /opt/ros/melodic/setup.bash' >> ~/.bashrc && source ~/.bashrc && tail -f /dev/null" ]
+

@@ -2,7 +2,7 @@ services:
   roscore:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.arm64
     container_name: roscore
     command: roscore
     network_mode: "host"
@@ -13,7 +13,7 @@ services:
   rosdev:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.arm64
     container_name: rosdev
     network_mode: "host"
     environment:
