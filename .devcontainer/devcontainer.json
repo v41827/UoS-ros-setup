@@ -13,7 +13,6 @@
                 "ms-iot.vscode-ros",
                 "ms-python.python",
                 "ms-vscode.cpptools",
-                "redhat.vscode-xml",
                 "dotjoshjohnson.xml",
                 "ms-vscode.cmake-tools",
                 "ms-python.black-formatter",
