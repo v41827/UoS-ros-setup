@@ -2,11 +2,7 @@ FROM arm64v8/ros:melodic-ros-base-bionic
 
 ENV DEBIAN_FRONTEND=noninteractive \
     HOME=/root \
-    DISPLAY=:1 \
-    USER=root \
-    XDG_RUNTIME_DIR=/tmp/runtime-root \
-    QT_X11_NO_MITSHM=1 \
-    TURTLEBOT3_MODEL=burger
+    USER=root
 
 # Install VNC, XFCE4, and required packages
 RUN apt-get update && apt-get install -y \
@@ -16,13 +12,13 @@ RUN apt-get update && apt-get install -y \
     ros-melodic-rviz \
     ros-melodic-turtlebot3 \
     ros-melodic-turtlebot3-msgs \
+    gazebo9 \
     xfce4 \
     xfce4-goodies \
     tigervnc-standalone-server\
     novnc \
     net-tools \
     supervisor \
-    dbus-x11 \
     websockify \
     # Add OpenGL and Qt dependencies
     libgl1-mesa-dri \

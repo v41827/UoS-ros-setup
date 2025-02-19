@@ -5,11 +5,9 @@ services:
       dockerfile: Dockerfile.arm64
     container_name: roscore
     command: roscore
-    networks:
-      - rosnet
+    network_mode: "host"
     environment:
-      - ROS_HOSTNAME=roscore
-      - ROS_MASTER_URI=http://roscore:11311
+      - ROS_MASTER_URI=http://localhost:11311
     restart: always
 
   rosdev:
@@ -17,18 +15,13 @@ services:
       context: .
       dockerfile: Dockerfile.arm64
     container_name: rosdev
-    ports:
-      - "5901:5901"
-      - "6080:6080"
-    networks:
-      - rosnet
+    network_mode: "host"
     environment:
-      - ROS_HOSTNAME=rosdev
-      - ROS_MASTER_URI=http://roscore:11311
+      - ROS_MASTER_URI=http://localhost:11311
+      - DISPLAY=:1
+      - XDG_RUNTIME_DIR=/tmp/runtime-root
+      - TURTLEBOT3_MODEL=burger
+      - QT_X11_NO_MITSHM=1
     volumes:
       - ../catkin_ws:/root/catkin_ws
     restart: always
-
-networks:
-  rosnet:
-    driver: bridge
