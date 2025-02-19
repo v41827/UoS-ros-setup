@@ -1,9 +1,10 @@
 {
     "name": "ROS Melodic Sandbox",
     "dockerComposeFile": [
-        "${localWorkspaceFolder}/.devcontainer/docker-compose.${localEnv:OS:wsl}.yaml"
+        "${localWorkspaceFolder}/.devcontainer/docker-compose.${localEnv:HOSTTYPE:arm64}.yaml"
     ],
     "service": "rosdev",
+    
     "workspaceFolder": "/root/catkin_ws",
     "remoteUser": "root",
     "customizations": {
