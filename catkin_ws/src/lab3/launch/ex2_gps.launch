@@ -10,7 +10,7 @@
 
     <node pkg="robot_localization" name="KF" type="ekf_localization_node">
         <param name="odom0" value="/odom_corrected"/>
-        <!-- only take vx, vy, vz, vroll, vpitch, vyaw -->
+        <!-- vx, vy, vz, vroll, vpitch, vyaw -->
         <rosparam param="odom0_config">[false, false, false,
                                         false, false, false,
                                         true, true, true,
@@ -18,7 +18,7 @@
                                         false, false, false]
         </rosparam>
         <param name="odom1" value="/odometry/gps"/>
-        <!-- only take x, y -->
+        <!-- x, y -->
         <rosparam param="odom1_config">[true, true, false,
                                         false, false, false,
                                         false, false, false,
