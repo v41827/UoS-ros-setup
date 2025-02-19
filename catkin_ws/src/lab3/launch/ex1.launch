@@ -1,19 +1,16 @@
 <launch>
+    <node pkg="rviz" type="rviz" name="rviz"/>
     <param name="use_sim_time" value="true" />
-
     <include file="$(find turtlebot3_bringup)/launch/includes/description.launch.xml">
         <arg name="model" value="burger" />
     </include>
 
-    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
-
-    <node pkg="rviz" type="rviz" name="rviz"/>
-
     <node pkg="rosbag" type="play" name="player" args="--clock /root/catkin_ws/labs/lab3/lab3_data.bag"/>
-
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
     <node pkg="robot_localization" name="gps_transformer" type="navsat_transform_node">
         <remap from="/odometry/filtered" to="/odom_corrected"/>
         <remap from="/imu/data" to="/imu_corrected"/>
-        <remap from="/gps/fix" to="/gps/fix"/>
+        <!-- not necessary to remap -->
+        <!-- <remap from="/gps/fix" to="/gps/fix"/> -->
     </node>
 </launch>
