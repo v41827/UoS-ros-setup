@@ -22,7 +22,7 @@ UoS-ros-setup
 │   ├── Makefile
 │   ├── build
 │   ├── devel
-│   ├── labs
+│   ├── solutions
 │   └── src
 └── uos_vpn_setup.pdf
 ```
