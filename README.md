@@ -3,8 +3,8 @@ This repository supports both `arm64` 🍎 and `x86_64` 🪟 architectures.
 ![ROS](assets/vscode.png)
 
 **Read the following information carefully before you proceed!**
-- If you have an Apple Silicon Mac, the image is based on `arm64v8/ros:melodic-ros-base-bionic` and contains the [noVNC](https://novnc.com/info.html) setup for GUI applications such as `RViz` and `Gazebo`.
-- If you have a PC, the image is from the University of Surrey's container registry, so make sure you have GlobalProtect VPN installed and connected. See [here](uos_vpn_setup.pdf) for more information. A custom Dockerfile based on `osrf/ros:melodic-desktop-full` is a work in progress 🚧.
+- If you have an **Apple Silicon** Mac, the image is based on `arm64v8/ros:melodic-ros-base-bionic` and contains the [noVNC](https://novnc.com/info.html) setup for GUI applications such as `RViz` and `Gazebo`.
+- If you have a **PC**, the image is from the University of Surrey's container registry, so make sure you have GlobalProtect VPN installed and connected. See [here](uos_vpn_setup.pdf) for more information. A custom Dockerfile based on `osrf/ros:melodic-desktop-full` is a work in progress 🚧.
 - Currently everything is running on integrated graphics. To enable GPU acceleration, you're on your own 🤷‍♂️.
 
 ## Directory Layout
@@ -38,7 +38,7 @@ choco install docker-desktop
 ```
 ### Windows Setup 🪟
 The Windows setup requires you to have WSL2 installed. Follow the instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install) to install WSL2. Fortunately, unlike the Apple Sillicon setup, [WSLg](https://github.com/microsoft/wslg) takes care of the GUI applications so we don't have to install [noVNC](https://novnc.com/info.html) or [vcXsrv](https://vcxsrv.com/).
-1. Connect to `vpn.surrey.ac.uk` using GlobalProtect VPN. Run the following command to pull the image from the University of Surrey's container registry and tag it as `uos-ros-setup:latest`.
+1. Connect to `vpn.surrey.ac.uk` using `GlobalProtect VPN`. Run the following command to pull the image from the University of Surrey's container registry and tag it as `uos-ros-setup:latest`.
     ```bash
     docker pull container-registry.surrey.ac.uk/shared-containers/robotics-module-2:latest
     docker tag container-registry.surrey.ac.uk/shared-containers/robotics-module-2:latest uos-robotics:latest
