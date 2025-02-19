@@ -2,7 +2,7 @@ services:
   roscore:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.arm64
     container_name: roscore
     command: roscore
     networks:
@@ -15,7 +15,7 @@ services:
   rosdev:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.arm64
     container_name: rosdev
     ports:
       - "5901:5901"
