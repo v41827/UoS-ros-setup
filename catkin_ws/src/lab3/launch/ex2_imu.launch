@@ -5,11 +5,12 @@
         <arg name="model" value="burger" />
     </include>
 
-    <node pkg="rosbag" type="play" name="player" args="--clock /root/catkin_ws/labs/lab3/lab3_data.bag"/>
+    <node pkg="rosbag" type="play" name="player" args="--clock /root/catkin_ws/solutions/lab3/lab3_data.bag"/>
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
 
     <node pkg="robot_localization" name="KF" type="ekf_localization_node">
         <param name="imu0" value="/imu_corrected"/>
+        <param name="imu0_remove_gravitational_acceleration" value="true"/>
         <!-- roll, pitch, yaw, vroll, vpitch, vyaw, ax, ay, az -->
         <rosparam param="imu0_config">[false, false, false,
                                        true, true, true,
